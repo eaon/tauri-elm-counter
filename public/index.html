@@ -12,23 +12,19 @@
     <script type="module">
         const root = document.getElementById("main");
         const app = Elm.Main.init({ node: root, flags: {} });
+        const ports = app.ports;
         const invoke = window.__TAURI__.invoke;
 
-        app.ports.increment.subscribe(function(count) {
-            invoke("increment", { current: count }).then((updatedCount) =>
-                app.ports.updateCount.send(updatedCount)
-            ).catch(err => console.log(err));
-        });
-        app.ports.decrement.subscribe(function(count) {
-            invoke("decrement", { current: count }).then((updatedCount) =>
-                app.ports.updateCount.send(updatedCount)
-            ).catch(err => console.log(err));
-        });
-        app.ports.reset.subscribe(function() {
-            invoke("reset").then((updatedCount) =>
-                app.ports.updateCount.send(updatedCount)
-            ).catch(err => console.log(err));
-        });
+        ports.increment.subscribe(async (count) =>
+            ports.updateCount.send(await invoke("increment", {
+                current: count
+            })));
+        ports.decrement.subscribe(async (count) =>
+            ports.updateCount.send(await invoke("decrement", {
+                current: count
+            })));
+        ports.reset.subscribe(async () =>
+            ports.updateCount.send(await invoke("reset")));
     </script>
 </body>
 
