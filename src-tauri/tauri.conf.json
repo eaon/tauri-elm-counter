@@ -7,8 +7,8 @@
     "withGlobalTauri": true
   },
   "package": {
-    "productName": "hello-world",
-    "version": "0.0.0"
+    "productName": "tauri-elm-counter",
+    "version": "0.0.1"
   },
   "tauri": {
     "allowlist": {
@@ -40,7 +40,7 @@
       {
         "fullscreen": false,
         "resizable": true,
-        "title": "hello-world",
+        "title": "Tauri (Vanilla) + Elm Counter",
         "width": 800,
         "height": 600
       }
