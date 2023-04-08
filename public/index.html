@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="main.js"></script>
+    <title>Elm + Tauri Counter</title>
+</head>
+
+<body>
+    <div id="main"></div>
+    <script type="module">
+        const root = document.getElementById("main");
+        const app = Elm.Main.init({ node: root, flags: {} });
+        const invoke = window.__TAURI__.invoke;
+
+        app.ports.increment.subscribe(function(count) {
+            invoke("increment", { current: count }).then((updatedCount) =>
+                app.ports.updateCount.send(updatedCount)
+            ).catch(err => console.log(err));
+        });
+        app.ports.decrement.subscribe(function(count) {
+            invoke("decrement", { current: count }).then((updatedCount) =>
+                app.ports.updateCount.send(updatedCount)
+            ).catch(err => console.log(err));
+        });
+        app.ports.reset.subscribe(function() {
+            invoke("reset").then((updatedCount) =>
+                app.ports.updateCount.send(updatedCount)
+            ).catch(err => console.log(err));
+        });
+    </script>
+</body>
+
+</html>
