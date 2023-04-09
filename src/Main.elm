@@ -31,7 +31,6 @@ init flags =
 
 port increment : Int -> Cmd msg
 port decrement : Int -> Cmd msg
-port reset : () -> Cmd msg
 port updateCount : (Int -> msg) -> Sub msg
 
 
@@ -56,7 +55,7 @@ update msg model =
     Decrement ->
       (model, decrement(model.count))
     Reset ->
-      (model, reset())
+      ({model | count = 0}, Cmd.none)
 
 
 -- SUBSCRIPTIONS

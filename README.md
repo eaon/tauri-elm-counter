@@ -2,6 +2,8 @@
 
 This is a quick and dirty proof-of-concept for passing messages from Tauri's Rust backend as well as a WebAssembly module to Elm's frontend (and vice versa) without relying on the typical JavaScript ecosystem.
 
+In this project, the counter is incremented via Tauri's Rust backend, decremented via WebAssembly, and reset via Elm.
+
 ## Dependencies
 
 * Rust (… yes)

@@ -19,8 +19,6 @@
             ports.updateCount.send(await invoke("increment", {
                 current: count
             })));
-        ports.reset.subscribe(async () =>
-            ports.updateCount.send(await invoke("reset")));
 
         import init, * as wasm from './tauri-elm-counter-wasm/tauri_elm_counter_wasm.js';
         async function setup() {
