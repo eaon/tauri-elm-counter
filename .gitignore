@@ -1,5 +1,6 @@
 # Don't include the JavaScript file built via Elm
 public/main.js
+public/tauri-elm-counter-wasm/*
 
 # Elm stuff
 elm-stuff/*

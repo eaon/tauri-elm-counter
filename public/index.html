@@ -19,12 +19,18 @@
             ports.updateCount.send(await invoke("increment", {
                 current: count
             })));
-        ports.decrement.subscribe(async (count) =>
-            ports.updateCount.send(await invoke("decrement", {
-                current: count
-            })));
         ports.reset.subscribe(async () =>
             ports.updateCount.send(await invoke("reset")));
+
+        import init, * as wasm from './tauri-elm-counter-wasm/tauri_elm_counter_wasm.js';
+        async function setup() {
+            await init();
+        }
+        await setup();
+
+        ports.decrement.subscribe(function(count) {
+            ports.updateCount.send(Number(wasm.decrement(BigInt(count))));
+        });
     </script>
 </body>
 

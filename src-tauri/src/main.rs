@@ -9,11 +9,6 @@ fn increment(current: i64) -> i64 {
 }
 
 #[tauri::command]
-fn decrement(current: i64) -> i64 {
-    current - 1
-}
-
-#[tauri::command]
 fn reset() -> i64 {
     0
 }
@@ -31,7 +26,7 @@ fn main() {
             }
             _ => {}
         })
-        .invoke_handler(tauri::generate_handler![increment, decrement, reset])
+        .invoke_handler(tauri::generate_handler![increment, reset])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }

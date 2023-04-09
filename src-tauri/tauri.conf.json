@@ -1,6 +1,6 @@
 {
   "build": {
-    "beforeDevCommand": "elm make src/Main.elm --output=public/main.js",
+    "beforeDevCommand": "make build-frontend-dev",
     "beforeBuildCommand": "elm make src/Main.elm --output=public/main.js --optimize",
     "devPath": "../public",
     "distDir": "../public",
