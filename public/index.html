@@ -27,7 +27,7 @@
         await setup();
 
         ports.decrement.subscribe(function(count) {
-            ports.updateCount.send(Number(wasm.decrement(BigInt(count))));
+            ports.updateCount.send(wasm.decrement(count));
         });
     </script>
 </body>
