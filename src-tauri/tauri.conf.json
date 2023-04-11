@@ -1,7 +1,7 @@
 {
   "build": {
     "beforeDevCommand": "make build-frontend-dev",
-    "beforeBuildCommand": "elm make src/Main.elm --output=public/main.js --optimize",
+    "beforeBuildCommand": "make build-frontend",
     "devPath": "../public",
     "distDir": "../public",
     "withGlobalTauri": true
