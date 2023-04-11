@@ -4,8 +4,8 @@
 use tauri::{CustomMenuItem, Menu, Submenu};
 
 #[tauri::command]
-fn increment(current: i32) -> i32 {
-    current + 1
+fn increment(current: f64) -> f64 {
+    current + 1f64
 }
 
 fn main() {
