@@ -4,13 +4,8 @@
 use tauri::{CustomMenuItem, Menu, Submenu};
 
 #[tauri::command]
-fn increment(current: i64) -> i64 {
+fn increment(current: i32) -> i32 {
     current + 1
-}
-
-#[tauri::command]
-fn reset() -> i64 {
-    0
 }
 
 fn main() {
@@ -26,7 +21,7 @@ fn main() {
             }
             _ => {}
         })
-        .invoke_handler(tauri::generate_handler![increment, reset])
+        .invoke_handler(tauri::generate_handler![increment])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
 }
