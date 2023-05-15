@@ -7,10 +7,10 @@ In this project, the counter is incremented via Tauri's Rust backend, decremente
 ## Dependencies
 
 * Rust (… yes)
-* Elm 0.19.1 binary in your `PATH`
-* `wasm-pack` (i.e. `cargo install wasm-pack`)
-* `create-tauri-app` (i.e. `cargo install create-tauri-app`)
-* `make`
+* [Elm](https://elm-lang.org/) 0.19.1 binary in your `PATH`
+* [`wasm-pack`](https://crates.io/crates/wasm-pack) (i.e. `cargo install wasm-pack`)
+* [`create-tauri-app`](https://crates.io/crates/create-tauri-app) (i.e. `cargo install create-tauri-app`)
+* [`just`](https://crates.io/crates/just) (i.e. `cargo install just`)
 
 ## Building
 

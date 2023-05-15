@@ -1,7 +1,7 @@
 {
   "build": {
-    "beforeDevCommand": "make build-frontend-dev",
-    "beforeBuildCommand": "make build-frontend",
+    "beforeDevCommand": "just build-frontend-dev",
+    "beforeBuildCommand": "just build-frontend",
     "devPath": "../public",
     "distDir": "../public",
     "withGlobalTauri": true
