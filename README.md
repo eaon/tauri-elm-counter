@@ -12,6 +12,8 @@ In this project, the counter is incremented via Tauri's Rust backend, decremente
 * [`create-tauri-app`](https://crates.io/crates/create-tauri-app) (i.e. `cargo install create-tauri-app`)
 * [`just`](https://crates.io/crates/just) (i.e. `cargo install just`)
 
-## Building
+## Getting started
 
-`cargo-tauri dev`
+```sh
+just run-dev
+```
